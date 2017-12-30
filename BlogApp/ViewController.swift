@@ -35,10 +35,10 @@ class ViewController: UIViewController {
                         guard let uid = user?.uid else {
                             return
                         }
-                        let values = ["username": self.usernameText.text!, "email": self.self.emailText.text!]
+                        let values = ["username": self.usernameText.text!, "email": self.emailText.text!]
                         
                         self.storingUserIntoFirebase(uid: uid, values: values as [String : AnyObject])
-                        //perform segue here
+                        self.performSegue(withIdentifier: "authSegue", sender: nil)
                     } else {
                         let alert = UIAlertController(title: "valid username and password required", message: "You must enter valid details", preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
@@ -50,7 +50,7 @@ class ViewController: UIViewController {
             if emailText.text != "" && usernameText.text != "" && passwordText.text != "" {
                 Auth.auth().signIn(withEmail: emailText.text!, password: passwordText.text!, completion: { (user, error) in
                     if user != nil && error == nil {
-                        //perform Segue
+                        self.performSegue(withIdentifier: "authSegue", sender: nil)
                     }else {
                         let alert = UIAlertController(title: "valid username and password required", message: "You must enter valid details", preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
