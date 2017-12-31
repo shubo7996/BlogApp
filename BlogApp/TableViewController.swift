@@ -15,7 +15,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var messageTableView: UITableView!
     var headerArray = [String]()
     var contentArray = [String]()
-    var timestampsArray = [String]()
+    var timestampsArray = [Int64]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +36,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let cell = messageTableView.dequeueReusableCell(withIdentifier: "Cell") as! feedViewCell
         cell.headerText.text = headerArray[indexPath.row]
         cell.contentText.text = contentArray[indexPath.row]
-        cell.timestampsText.text = timestampsArray[indexPath.row]
+        cell.timestampsText.text = timestampsArray[indexPath.row] as? String
         return cell
     }
     
@@ -48,16 +48,14 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     return
                 }
                 print (snapshot.key)
-                print (snapshot.value)
+                print (snapshot.value!)
                 let dictionary = snapshot.value as! NSDictionary
-                let messages = dictionary["messages"] as! NSDictionary
-                let messagesIDs = messages.allKeys
-                
-                for id in messagesIDs {
-                    let singleMessage = messages[id] as! NSDictionary
-                    self.headerArray.append(singleMessage["heading"] as! String)
-                    self.contentArray.append(singleMessage["content"] as! String)
-                    self.timestampsArray.append(singleMessage["timestamps"] as! String)
+                let dictIDs = dictionary.allKeys
+                for id in dictIDs {
+                    let singlePost = dictionary[id] as! NSDictionary
+                    self.headerArray.append(singlePost["heading"] as! String)
+                    self.contentArray.append(singlePost["content"] as! String)
+                    self.timestampsArray.append((singlePost["timestamps"] as! Int64))
                 }
                 self.messageTableView.reloadData()
             })
