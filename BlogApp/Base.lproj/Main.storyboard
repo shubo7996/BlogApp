@@ -185,8 +185,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="contentField" destination="2qQ-Rh-Mz2" id="N1F-hq-jYv"/>
-                        <outlet property="headerField" destination="2qQ-Rh-Mz2" id="IfW-J0-2Ga"/>
+                        <outlet property="contentField" destination="khA-BU-3gE" id="sEG-gq-8vz"/>
+                        <outlet property="headerField" destination="2qQ-Rh-Mz2" id="ScU-ZF-GNV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EX7-I3-Rzn" userLabel="First Responder" sceneMemberID="firstResponder"/>

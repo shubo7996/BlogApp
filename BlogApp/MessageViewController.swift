@@ -24,7 +24,7 @@ class MessageViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBAction func didTapButton(_ sender: Any) {
         if headerField.text != nil && contentField.text != nil {
             let values = ["heading" : headerField.text!, "content" : contentField.text!, "timestamps" : ServerValue.timestamp()] as [String : Any]
-            Database.database().reference().child("User").child((Auth.auth().currentUser?.uid)!).child("messages").childByAutoId().setValue(values)
+            Database.database().reference().child("User").child((Auth.auth().currentUser?.uid)!).child("messages").childByAutoId().updateChildValues(values)
         }
     }
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -54,7 +54,7 @@ class MessageViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         pickerView.delegate = self
         pickerView.dataSource = self
         headerField.inputView = pickerView
-        //headerField.textAlignment = .center
+        headerField.textAlignment = .center
         headerField.placeholder = "Select Your Header"
         
         

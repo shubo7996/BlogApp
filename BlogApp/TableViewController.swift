@@ -43,7 +43,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func gettingMessageInfo(){
         if Auth.auth().currentUser?.uid != nil {
             let uid = Auth.auth().currentUser?.uid
-            Database.database().reference().child("User").child(uid!).child("messages").childByAutoId().observe(DataEventType.childAdded, with: { (snapshot) in
+            Database.database().reference().child("User").child(uid!).child("messages").observeSingleEvent(of: .value, with: { (snapshot) in
                 if !snapshot.exists() {
                     return
                 }
