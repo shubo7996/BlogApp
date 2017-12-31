@@ -15,7 +15,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var messageTableView: UITableView!
     var headerArray = [String]()
     var contentArray = [String]()
-    var timestampsArray = [Int64]()
+    var timestampsArray = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +36,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let cell = messageTableView.dequeueReusableCell(withIdentifier: "Cell") as! feedViewCell
         cell.headerText.text = headerArray[indexPath.row]
         cell.contentText.text = contentArray[indexPath.row]
-        cell.timestampsText.text = timestampsArray[indexPath.row] as? String
+        cell.timestampsText.text = timestampsArray[indexPath.row]
         return cell
     }
     
@@ -55,7 +55,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     let singlePost = dictionary[id] as! NSDictionary
                     self.headerArray.append(singlePost["heading"] as! String)
                     self.contentArray.append(singlePost["content"] as! String)
-                    self.timestampsArray.append((singlePost["timestamps"] as! Int64))
+                    self.timestampsArray.append((singlePost["timestamps"] as! String))
                 }
                 self.messageTableView.reloadData()
             })

@@ -11,12 +11,12 @@ import Firebase
 
 class Message {
     var heading :String
-    var timestamps :Int64
+    var timestamps :String
     var content :String
     
     init (dictionary: [String:AnyObject]) {
         self.heading = dictionary["heading"] as! String
         self.content = dictionary["content"] as! String
-        self.timestamps = dictionary["timestamps"] as! Int64
+        self.timestamps = dictionary["timestamps"] as! String
     }
 }

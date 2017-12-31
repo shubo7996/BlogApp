@@ -23,9 +23,19 @@ class MessageViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     @IBAction func didTapButton(_ sender: Any) {
         if headerField.text != nil && contentField.text != nil {
-            let values = ["heading" : headerField.text!, "content" : contentField.text!, "timestamps" : ServerValue.timestamp()] as [String : Any]
+            let time = self.getTime()
+            let values = ["heading" : headerField.text!, "content" : contentField.text!, "timestamps": time]
             Database.database().reference().child("User").child((Auth.auth().currentUser?.uid)!).child("messages").childByAutoId().updateChildValues(values)
         }
+    }
+     func getTime() -> String {
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeStyle = .medium
+        let time = dateFormatter.string(from: date)
+        return time
+        
     }
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
