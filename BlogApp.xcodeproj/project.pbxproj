@@ -11,6 +11,7 @@
 		9607EA0C1FF7F9F300734EF8 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9607EA0B1FF7F9F300734EF8 /* MessageViewController.swift */; };
 		9607EA0E1FF8162B00734EF8 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9607EA0D1FF8162A00734EF8 /* TableViewController.swift */; };
 		9607EA121FF821A800734EF8 /* feedViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9607EA111FF821A800734EF8 /* feedViewCell.swift */; };
+		9660ACDE1FFA3ECF00B8E1B7 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9660ACDD1FFA3ECF00B8E1B7 /* Key.swift */; };
 		96F8E45C1FF758970088B206 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F8E45B1FF758970088B206 /* AppDelegate.swift */; };
 		96F8E45E1FF758980088B206 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F8E45D1FF758980088B206 /* ViewController.swift */; };
 		96F8E4611FF758980088B206 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96F8E45F1FF758980088B206 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 		9607EA0B1FF7F9F300734EF8 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		9607EA0D1FF8162A00734EF8 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		9607EA111FF821A800734EF8 /* feedViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = feedViewCell.swift; sourceTree = "<group>"; };
+		9660ACDD1FFA3ECF00B8E1B7 /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		96F8E4581FF758970088B206 /* BlogApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlogApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96F8E45B1FF758970088B206 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96F8E45D1FF758980088B206 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				96F8E45B1FF758970088B206 /* AppDelegate.swift */,
 				96F8E45D1FF758980088B206 /* ViewController.swift */,
 				96F8E46F1FF76D190088B206 /* User.swift */,
+				9660ACDD1FFA3ECF00B8E1B7 /* Key.swift */,
 				9607EA0B1FF7F9F300734EF8 /* MessageViewController.swift */,
 				9607EA0D1FF8162A00734EF8 /* TableViewController.swift */,
 				9607EA111FF821A800734EF8 /* feedViewCell.swift */,
@@ -187,6 +190,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-BlogApp/Pods-BlogApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -194,6 +198,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -247,6 +252,7 @@
 				9607EA121FF821A800734EF8 /* feedViewCell.swift in Sources */,
 				9607EA081FF7B40900734EF8 /* Message.swift in Sources */,
 				96F8E4701FF76D190088B206 /* User.swift in Sources */,
+				9660ACDE1FFA3ECF00B8E1B7 /* Key.swift in Sources */,
 				96F8E45C1FF758970088B206 /* AppDelegate.swift in Sources */,
 				9607EA0C1FF7F9F300734EF8 /* MessageViewController.swift in Sources */,
 			);

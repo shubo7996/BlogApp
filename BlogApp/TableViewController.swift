@@ -16,6 +16,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var headerArray = [String]()
     var contentArray = [String]()
     var timestampsArray = [String]()
+    var IdArray = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +41,62 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let header = headerArray[indexPath.row]
+        let content = contentArray[indexPath.row]
+        let alertController = UIAlertController(title: "", message: "Do whatever you Want to", preferredStyle: .alert)
+        
+        let updateAction = UIAlertAction(title: "Update", style: .default) { (_) in
+            let id = self.IdArray[indexPath.row]
+            let heading = alertController.textFields?[0].text
+            let content = alertController.textFields?[1].text
+            self.updateMessage(heading: heading!, content: content!, id: id)
+            
+        }
+        
+                
+    
+        let deleteAction = UIAlertAction(title: "Delete", style: .default) { (_) in
+            let id = self.IdArray[indexPath.row]
+            self.deleteMessage(id: id)
+        }
+        alertController.addTextField { (textField) in
+            textField.text = header
+        }
+        alertController.addTextField { (textField) in
+            textField.text = content
+        }
+        alertController.addAction(updateAction)
+        alertController.addAction(deleteAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func updateMessage(heading: String, content: String, id: String){
+        let time = self.getTime()
+        let values = ["heading" : heading, "content" : content, "timestamps" : time]
+        Database.database().reference().child("User").child((Auth.auth().currentUser?.uid)!).child("messages").child(id).updateChildValues(values)
+        
+        self.messageTableView.reloadData()
+    }
+    
+    func deleteMessage(id: String){
+        Database.database().reference().child("User").child((Auth.auth().currentUser?.uid)!).child("messages").child(id).setValue(nil)
+        
+        self.messageTableView.reloadData()
+        
+    }
+    
+    func getTime() -> String {
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeStyle = .medium
+        let time = dateFormatter.string(from: date)
+        return time
+        
+    }
+    
     func gettingMessageInfo(){
         if Auth.auth().currentUser?.uid != nil {
             let uid = Auth.auth().currentUser?.uid
@@ -53,15 +110,20 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 let dictIDs = dictionary.allKeys
                 for id in dictIDs {
                     let singlePost = dictionary[id] as! NSDictionary
+                    self.IdArray.append(id as! String)
                     self.headerArray.append(singlePost["heading"] as! String)
                     self.contentArray.append(singlePost["content"] as! String)
                     self.timestampsArray.append((singlePost["timestamps"] as! String))
                 }
+                print(self.IdArray)
                 self.messageTableView.reloadData()
             })
         }
         
     }
+    
+    
+    
 
     /*
     // MARK: - Navigation

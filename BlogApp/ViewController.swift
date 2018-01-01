@@ -26,6 +26,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+
 
     @IBAction func didTapEnter(_ sender: Any) {
         if segmentControl.selectedSegmentIndex == 0 {
@@ -38,6 +40,7 @@ class ViewController: UIViewController {
                         let values = ["username": self.usernameText.text!, "email": self.emailText.text!]
                         
                         self.storingUserIntoFirebase(uid: uid, values: values as [String : AnyObject])
+                        
                         self.performSegue(withIdentifier: "authSegue", sender: nil)
                     } else {
                         let alert = UIAlertController(title: "valid username and password required", message: "You must enter valid details", preferredStyle: .alert)

@@ -145,7 +145,7 @@
                                         </state>
                                         <connections>
                                             <action selector="didTapButton:" destination="Z2b-Q3-S2m" eventType="touchUpInside" id="zLM-OP-5vO"/>
-                                            <segue destination="exd-sc-mjI" kind="show" id="H3c-rZ-Ccb"/>
+                                            <segue destination="exd-sc-mjI" kind="show" identifier="msgSegue" id="H3c-rZ-Ccb"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -166,6 +166,16 @@
                                     <constraint firstItem="khA-BU-3gE" firstAttribute="top" secondItem="2qQ-Rh-Mz2" secondAttribute="bottom" constant="45" id="v88-KC-n81"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TXo-fS-Zfx">
+                                <rect key="frame" x="83" y="358" width="196" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="See All Messages"/>
+                                <connections>
+                                    <segue destination="exd-sc-mjI" kind="show" id="0cz-dD-WNJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -201,8 +211,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ezm-yW-UYV">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ezm-yW-UYV">
+                                <rect key="frame" x="0.0" y="57" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="139" id="VKy-cK-1T6" customClass="feedViewCell" customModule="BlogApp" customModuleProvider="target">
@@ -313,10 +323,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Ezm-yW-UYV" firstAttribute="leading" secondItem="AEV-xF-B5U" secondAttribute="leading" id="1hT-Hr-ryR"/>
-                            <constraint firstAttribute="trailing" secondItem="Ezm-yW-UYV" secondAttribute="trailing" id="Y7U-I6-2bI"/>
-                            <constraint firstItem="Ezm-yW-UYV" firstAttribute="bottom" secondItem="Zfu-OO-zDH" secondAttribute="bottom" id="aVJ-vt-MVh"/>
-                            <constraint firstItem="Ezm-yW-UYV" firstAttribute="top" secondItem="Zfu-OO-zDH" secondAttribute="top" id="sqs-01-v4y"/>
+                            <constraint firstAttribute="trailing" secondItem="Ezm-yW-UYV" secondAttribute="trailing" id="5cE-fx-p8n"/>
+                            <constraint firstItem="Ezm-yW-UYV" firstAttribute="leading" secondItem="AEV-xF-B5U" secondAttribute="leading" id="RPJ-RP-L3i"/>
+                            <constraint firstItem="Ezm-yW-UYV" firstAttribute="top" secondItem="AEV-xF-B5U" secondAttribute="topMargin" constant="-7" id="b63-CR-wux"/>
+                            <constraint firstItem="Zfu-OO-zDH" firstAttribute="bottom" secondItem="Ezm-yW-UYV" secondAttribute="bottom" constant="7" id="mOD-tQ-zMw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Zfu-OO-zDH"/>
                     </view>
@@ -347,4 +357,7 @@
             <point key="canvasLocation" x="152" y="134.93253373313345"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="0cz-dD-WNJ"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 import FirebaseAuth
+import SwiftKeychainWrapper
 
 class MessageViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
@@ -26,9 +27,14 @@ class MessageViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             let time = self.getTime()
             let values = ["heading" : headerField.text!, "content" : contentField.text!, "timestamps": time]
             Database.database().reference().child("User").child((Auth.auth().currentUser?.uid)!).child("messages").childByAutoId().updateChildValues(values)
+            
+            performSegue(withIdentifier: "msgSegue", sender: nil)
         }
+        headerField.text = ""
+        contentField.text = ""
     }
-     func getTime() -> String {
+    
+    func getTime() -> String {
         let date = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .long
